@@ -1,10 +1,5 @@
 <?php
 
-$valor = "irineu";
-
-echo $valor;
-
-/*
 class Pessoa{
 
     private $nome;
@@ -16,7 +11,10 @@ class Pessoa{
     private $bairro;
     private $endereco;
     private $celular;
-
 }
-*/
+
+
+
+
+
 ?>
