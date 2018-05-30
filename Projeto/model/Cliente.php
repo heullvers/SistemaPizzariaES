@@ -3,15 +3,15 @@ include 'Pessoa.php';
 
 class Cliente extends Pessoa{
 
-    private $idPessoa;
+    private $idCliente;
     private $qntContas;
     private $atendimentoEspecial;
 
     function __construct($nome, $nascimento, $cpf, $cidade, $endereco, $bairro, $telefone, 
-    $celular, $email, $idPessooa, $atendimentoEspecial){
+    $celular, $email, $idCliente, $atendimentoEspecial){
 
         parent::__construct($nome, $nascimento, $cpf, $cidade, $endereco, $bairro, $telefone, $celular, $email);
-        $this->idPessoa = $idPessoa;
+        $this->idCliente = $idCliente;
         $this->qntContas = 0;
         $this->atendimentoEspecial = $atendimentoEspecial;
     }
