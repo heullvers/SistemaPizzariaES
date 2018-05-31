@@ -9,9 +9,9 @@ class Funcionario extends Pessoa{
     private $dataAdmissao;
 
     function __construct($nome, $nascimento, $cpf, $cidade, $endereco, $bairro, $telefone, 
-    $celular, $email, $idFuncionario, $salario, $qntHorasSemanais, $dataAdmissao){
+    $celular, $email, $sexo, $idFuncionario, $salario, $qntHorasSemanais, $dataAdmissao){
 
-        parent::__construct($nome, $nascimento, $cpf, $cidade, $endereco, $bairro, $telefone, $celular, $email);
+        parent::__construct($nome, $nascimento, $cpf, $cidade, $endereco, $bairro, $telefone, $celular, $email, $sexo);
         $this->idFuncionario = $idFuncionario;
         $this->salario = $salario;
         $this->qntHorasSemanais = $qntHorasSemanais;

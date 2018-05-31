@@ -1,18 +1,20 @@
 <?php
 
+
 class Pessoa{
 
-    private $nome;
-    private $nascimento;
-    private $cpf;
-    private $cidade;
-    private $endereco;
-    private $bairro;
-    private $telefone;
-    private $celular;
-    private $email;
+    protected $nome;
+    protected $nascimento;
+    protected $cpf;
+    protected $cidade;
+    protected $endereco;
+    protected $bairro;
+    protected $telefone;
+    protected $celular;
+    protected $email;
+    protected $sexo;
  
-    function __construct($nome, $nascimento, $cpf, $cidade, $endereco, $bairro, $telefone, $celular, $email){
+    function __construct($nome, $nascimento, $cpf, $cidade, $endereco, $bairro, $telefone, $celular, $email, $sexo){
 
         $this->nome = $nome;
         $this->nascimento = $nascimento;
@@ -23,14 +25,23 @@ class Pessoa{
         $this->telefone = $telefone;
         $this->celular = $celular;
         $this->email = $email;
+        $this->sexo = $sexo;
     }
 
     
 
     
-
+    function imprimir(){
+        echo "Nome:".$this->nome."<br>
+        Nascimento:". $this->nascimento."<br>
+        Salario:".$this->cidade;
+             
+    }	
+    
 }
 
+//$t = new Pessoa("Heuller", "1998/06/15", "11120699681", "São Gonçalo", "Rua Pern 205", "Santa Rita", "3532412637","35997354331", "heuller555@gmail.com", "M" );
+//$t->imprimir();
 
 
 

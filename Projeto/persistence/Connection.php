@@ -27,7 +27,7 @@ class Connection{
 				die("Não foi possivel conectar ao bd");
 			}
 		}
-		echo "conectei";
+		
 		return $this->link;
 	}
 	
@@ -42,8 +42,5 @@ class Connection{
 
 
 }
-
-$con = new Connection("localhost", "5432", "postgres", "hubuntuh", "dbPizzaria");
-$con->conectar();
 
 ?>
