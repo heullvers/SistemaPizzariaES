@@ -47,10 +47,15 @@ include_once("../model/Cliente.php");
         
     }
 
-        public function alterar($link){
+        public function alterar($cod, $link){
 
-        $clienteid = $_GET['idcliente'];
-        
+        echo $cod;
+        //$cliente = $this->consultarUM($cod, $link);
+        //$cliente = consultarUM($clienteid, $link);
+        //echo $clienteid;
+
+
+        /*
 
         $query = "UPDATE cliente set nome='". $cliente->getNome()."', nascimento='". $cliente->getNascimento()."',
          cpf=". $cliente->getCpf()."', cidade='". $cliente->getCidade()."', endereco='". $cliente->getEndereco()."'
@@ -64,17 +69,36 @@ include_once("../model/Cliente.php");
         }
 
         echo "Os dados foram salvos";
-                
+          */      
     }
 
-    public function consultarUM($link){
+    public function consultarUM($cod, $link){
 
-        $clienteid = $_GET['idcliente'];
-        $query = "SELECT FROM cliente WHERE idcliente = '". $clienteid."'";
-        $result =  pg_query($link, $query);
-        $row = pg_fetch_row($result);
+        $query = "SELECT * FROM cliente WHERE idcliente = ". $cod."";
+        $pg =  pg_query($link, $query);
+        if(!$pg){
+
+            die("ERRO! Não foi possível encontrar o cliente.");
+        }
+
+        $row = pg_fetch_array($pg);
         return $row;
-
+        
+        /*
+        if($pg){
+            echo 
+            "<script>
+                location.href= 'C_visualizarclientes.php';
+            </script>";
+        }
+        else{
+            echo 
+            "<script>
+                alert('Não foi possível deletar o usuário');
+                location.href= 'C_visualizarclientes.php';
+            </script>";
+        }
+*/
     }
 
 
