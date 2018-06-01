@@ -20,14 +20,13 @@ class Connection{
 	
 	function conectar(){
 		if(!$this->link){
-			//$this->link = mysqli_connect($this->servidor, $this->user, $this->pwd, $this->bd);
 			$con = "host=".$this->servidor." ". "port=".$this->port." "."dbname=".$this->bd." "."user=".$this->user." "."password=".$this->pwd;
 			$this->link = pg_connect($con);
 			if(!$this->link){
 				die("Não foi possivel conectar ao bd");
 			}
 		}
-		
+
 		return $this->link;
 	}
 	
