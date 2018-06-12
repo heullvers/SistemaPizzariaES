@@ -5,6 +5,11 @@
     include_once("../model/Cliente.php");
     include_once("../persistence/Connection.php");
     include_once("../persistence/ClienteDAO.php");
+
+    session_start();
+
+
+
     $conexao = new Connection("localhost", "5432", "postgres", "hubuntuh", "dbPizzaria");
     $conexao->conectar();
 
@@ -24,6 +29,15 @@
 </head>
 <body>
     <h2>VISUALIZAÇÃO DE CLIENTES</h2>
+
+    <?php
+     if(isset($_SESSION['msg'])){
+         echo $_SESSION['msg'];
+         unset ($_SESSION['msg']);
+     }
+
+    
+    ?>
 
     <table border="1">
         <tr>
@@ -59,7 +73,8 @@
             <td><?php echo $row["email"];?></td>
             <td><?php echo $row["quantidadecontas"];?></td>
             <td><?php echo $row["atendimentoespecial"];?></td>
-            <td><a href="C_alterarcliente.php?idcliente=<?php echo $row["idcliente"];?>">Editar</a> |
+            <td><a href="..\view\alterarcliente.php?idcliente=<?php echo $row["idcliente"];?>">Editar</a> |
+
             <a href="javascript: if(confirm('Tem certeza que deseja deletar o cliente <?php echo $row["nome"];?>?
             '))location.href='C_excluircliente.php?idcliente=<?php echo $row["idcliente"];?>'"> Excluir </a></td>
         </tr>

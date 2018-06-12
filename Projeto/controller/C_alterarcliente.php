@@ -1,52 +1,29 @@
 <?php
+    session_start();
 
     include_once("../model/Cliente.php");
     include_once("../persistence/Connection.php");
     include_once("../persistence/ClienteDAO.php");
-
     $conexao = new Connection("localhost", "5432", "postgres", "hubuntuh", "dbPizzaria");
     $conexao->conectar();
 
+    $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
+    $nascimento = filter_input(INPUT_POST, 'datanascimento', FILTER_SANITIZE_STRING);
+    $cpf = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_STRING);
+    $cidade = filter_input(INPUT_POST, 'cidade', FILTER_SANITIZE_STRING); 
+    $endereco = filter_input(INPUT_POST, 'endereco', FILTER_SANITIZE_STRING); 
+    $bairro = filter_input(INPUT_POST, 'bairro', FILTER_SANITIZE_STRING); 
+    $telefone = filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_STRING); 
+    $celular = filter_input(INPUT_POST, 'celular', FILTER_SANITIZE_STRING); 
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING); 
+    $sexo = filter_input(INPUT_POST, 'sexo', FILTER_SANITIZE_STRING); 
+    $idCliente = filter_input(INPUT_POST, 'idcli', FILTER_SANITIZE_NUMBER_INT); 
+    $atendimentoEspecial  = filter_input(INPUT_POST, 'atendimentoespecial', FILTER_SANITIZE_STRING);
+    $qntContas = filter_input(INPUT_POST, 'qntC', FILTER_SANITIZE_NUMBER_INT); 
+    
+    
     $clientedao = new ClienteDAO();
-    $clientinho = $clientedao->consultarUM($_GET['idcliente'], $conexao->getLink());
+    $clientedao->alterar($nome, $nascimento, $cpf, $cidade, $endereco, $bairro, $telefone, $celular, 
+        $email, $sexo, $idCliente, $atendimentoEspecial, $qntContas, $conexao->getLink());
 
 ?>
-
-
-<!DOCTYPE html>
-<html>
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	</head>
-
-	<body>
-	<form action="..\controller\C_alterarcliente.php" method="POST">
-	<h2>CADASTRO DE CLIENTES</h2>
-		Nome <input type="text" name="nome" value=<?= $clientinho["nome"]?> /> <br><br>
-		Data de nascimento <input type="text" name="datanascimento" value=<?= $clientinho["nascimento"]?> /> <br><br>
-		CPF <input type="text" name="cpf" value=<?= $clientinho["cpf"]?> /> <br><br>
-
-
-		Sexo <input type="radio" name="sexo" value="Masculino" checked /> Masculino
-        <input type="radio" name="sexo" value="Feminino" /> Feminino
-		<input type="radio" name="sexo" value="Outro"/> Outro <br><br>
-
-		
-
-
-		Atendimento especial <input type="radio" name="atendimentoespecial" value="Sim"/> Sim
-		<input type="radio" name="atendimentoespecial" value="Nao" checked/> Não <br><br>
-
-
-		Cidade <input type="text" name="cidade" value=<?= $clientinho["cidade"]?> /> <br><br>
-		Endereco <input type="text" name="endereco" value=<?= $clientinho["endereco"]?> /> <br><br>
-		Bairro <input type="text" name="bairro" value=<?= $clientinho["bairro"]?> /> <br><br>
-		Telefone <input type="number" name="telefone" value=<?= $clientinho["telefone"]?> /> <br><br>
-		Celular <input type="number" name="celular" value=<?= $clientinho["celular"]?> /> <br><br>
-		E-mail <input type="text" name="email" value=<?= $clientinho["email"]?> /> <br><br>
-		<input type="reset" name="reset" value="Limpar dados"/>
-		<input type="submit" name="enviar" value="Enviar dados"/>
-
-	</form>
-	</body
-</html>

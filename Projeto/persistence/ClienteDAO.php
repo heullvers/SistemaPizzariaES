@@ -47,34 +47,40 @@ include_once("../model/Cliente.php");
         
     }
 
-        public function alterar($cod, $link){
+        public function alterar($nome, $nascimento, $cpf, $cidade, $endereco, $bairro, $telefone, $celular, 
+        $email, $sexo, $idCliente, $atendimentoEspecial, $qntContas, $link){
+    
+            /*
+        $query = "UPDATE cliente set nome='$nome', nascimento='$nascimento',
+         cpf='$cpf', cidade='$cidade', endereco='$endereco'
+        , bairro='$bairro', telefone='$telefone', celular='$celular',
+        email= '$email', quantidadecontas=$qntContas,
+         sexo='$sexo', atendimentoespecial='$atendimentoEspecial' WHERE idcliente = $idCliente";
+*/
 
-        echo $cod;
-        //$cliente = $this->consultarUM($cod, $link);
-        //$cliente = consultarUM($clienteid, $link);
-        //echo $clienteid;
+    $query = "UPDATE cliente set nome='$nome', nascimento='$nascimento', cidade='$cidade', endereco='$endereco',
+        bairro='$bairro', telefone='$telefone', celular='$celular', email='$email', sexo='$sexo', 
+        atendimentoespecial='$atendimentoEspecial', quantidadecontas='$qntContas', cpf='$cpf' WHERE idcliente = $idCliente";
+         $pg = pg_query($link, $query);
 
-
-        /*
-
-        $query = "UPDATE cliente set nome='". $cliente->getNome()."', nascimento='". $cliente->getNascimento()."',
-         cpf=". $cliente->getCpf()."', cidade='". $cliente->getCidade()."', endereco='". $cliente->getEndereco()."'
-        , bairro='". $cliente->getBairro()."', telefone='". $cliente->getTelefone()."', celular='". $cliente->getCelular()."',
-        email= '". $cliente->getEmail()."', quantidadecontas=". $cliente->getQntContas().",
-         sexo='". $cliente->getSexo()."', atendimentoespecial='". $cliente->getAtendimentoEspecial()."' WHERE idcliente = '". $clienteid."'";
-   
-        if(!pg_query($link, $query)){
-
-            die("ERRO! Os dados não foram salvos.");
+         if(pg_affected_rows($pg)){
+            $_SESSION['msg'] = "<p style='color:green;'>Cliente editado com sucesso</p>";
+            
+            header("Location: ..\controller\C_visualizarclientes.php");
+            echo "afetei";
+    
         }
-
-        echo "Os dados foram salvos";
-          */      
+        else{
+            $_SESSION['msg'] = "<p style='color:red;'>Falha ao editar cliente</p>";
+            
+            header("Location: ..\controller\C_visualizarclientes.php");
+        }
+         
     }
 
     public function consultarUM($cod, $link){
 
-        $query = "SELECT * FROM cliente WHERE idcliente = ". $cod."";
+        $query = "SELECT * FROM cliente WHERE idcliente = $cod";
         $pg =  pg_query($link, $query);
         if(!$pg){
 
