@@ -37,15 +37,29 @@
 		CPF <input type="text" name="cpf" value=<?= $clientinho["cpf"]?> /> <br><br>
 
 
-		Sexo <input type="radio" name="sexo" value="Masculino" checked /> Masculino
-        <input type="radio" name="sexo" value="Feminino" /> Feminino
-		<input type="radio" name="sexo" value="Outro"/> Outro <br><br>
+		<?php $sexo = $clientinho["sexo"]; ?>
+		<?php $at = $clientinho["atendimentoespecial"]; ?>
+
+		Sexo <input type="radio" name="sexo" value="Masculino" <?php echo ($sexo =="Masculino") ? "checked" : null;?> /> Masculino
+		<input type="radio" name="sexo" value="Feminino" <?php  echo ($sexo =="Feminino") ? "checked" : null;?> /> Feminino 
+		<input type="radio" name="sexo" value="Outro" <?php echo ($sexo =="Outro") ? "checked" : null;?>/> Outro <br><br>
+
+
+		
+
+		
+		
+
+		Atendimento especial <input type="radio" name="atendimentoespecial" 
+		value="Sim" <?php echo ($at =="Sim") ? "checked" : null;?>/> Sim
+		<input type="radio" name="atendimentoespecial" value="Não" <?php echo ($at =="Não") ? "checked" : null;?>/> Não <br><br>
+
 
 		
 
 
-		Atendimento especial <input type="radio" name="atendimentoespecial" value="Sim"/> Sim
-		<input type="radio" name="atendimentoespecial" value="Não" checked/> Não <br><br>
+
+
 
 
 		Cidade <input type="text" name="cidade" value=<?= $clientinho["cidade"]?> /> <br><br>
