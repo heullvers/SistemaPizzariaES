@@ -49,32 +49,24 @@ include_once("../model/Cliente.php");
 
         public function alterar($nome, $nascimento, $cpf, $cidade, $endereco, $bairro, $telefone, $celular, 
         $email, $sexo, $idCliente, $atendimentoEspecial, $qntContas, $link){
-    
-            /*
-        $query = "UPDATE cliente set nome='$nome', nascimento='$nascimento',
-         cpf='$cpf', cidade='$cidade', endereco='$endereco'
-        , bairro='$bairro', telefone='$telefone', celular='$celular',
-        email= '$email', quantidadecontas=$qntContas,
-         sexo='$sexo', atendimentoespecial='$atendimentoEspecial' WHERE idcliente = $idCliente";
-*/
 
-    $query = "UPDATE cliente set nome='$nome', nascimento='$nascimento', cidade='$cidade', endereco='$endereco',
-        bairro='$bairro', telefone='$telefone', celular='$celular', email='$email', sexo='$sexo', 
-        atendimentoespecial='$atendimentoEspecial', quantidadecontas='$qntContas', cpf='$cpf' WHERE idcliente = $idCliente";
-         $pg = pg_query($link, $query);
+            $query = "UPDATE cliente set nome='$nome', nascimento='$nascimento', cidade='$cidade', endereco='$endereco',
+            bairro='$bairro', telefone='$telefone', celular='$celular', email='$email', sexo='$sexo', 
+            atendimentoespecial='$atendimentoEspecial', quantidadecontas='$qntContas', cpf='$cpf' WHERE idcliente = $idCliente";
+            $pg = pg_query($link, $query);
 
-         if(pg_affected_rows($pg)){
-            $_SESSION['msg'] = "<p style='color:green;'>Cliente editado com sucesso</p>";
-            
-            header("Location: ..\controller\C_visualizarclientes.php");
-            echo "afetei";
-    
-        }
-        else{
-            $_SESSION['msg'] = "<p style='color:red;'>Falha ao editar cliente</p>";
-            
-            header("Location: ..\controller\C_visualizarclientes.php");
-        }
+            if(pg_affected_rows($pg)){
+                $_SESSION['msg'] = "<p style='color:green;'>Cliente editado com sucesso</p>";
+                
+                header("Location: ..\controller\C_visualizarclientes.php");
+                echo "afetei";
+        
+            }
+            else{
+                $_SESSION['msg'] = "<p style='color:red;'>Falha ao editar cliente</p>";
+                
+                header("Location: ..\controller\C_visualizarclientes.php");
+            }
          
     }
 
@@ -90,21 +82,6 @@ include_once("../model/Cliente.php");
         $row = pg_fetch_array($pg);
         return $row;
         
-        /*
-        if($pg){
-            echo 
-            "<script>
-                location.href= 'C_visualizarclientes.php';
-            </script>";
-        }
-        else{
-            echo 
-            "<script>
-                alert('Não foi possível deletar o usuário');
-                location.href= 'C_visualizarclientes.php';
-            </script>";
-        }
-*/
     }
 
 
