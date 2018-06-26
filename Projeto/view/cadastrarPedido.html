@@ -10,27 +10,27 @@
         <body>
             <section>
                 
-                    <form method="post" action="" autocomplete="off">
+                    <form method="post" action="..\controller\C_cadastropedido.php" autocomplete="off">
                         <h2>CADASTRO DE PEDIDOS</h2>
                         <fieldset>
                             <legend>Campos com * são obrigatórios</legend>
                             
-                            ID Pedido *<br> <input type="number" maxlength="12" name="idPedido" placeholder="Informe o ID" required autofocus><br><br>
+                            <!-- ID Pedido *<br> <input type="number" maxlength="12" name="idPedido" placeholder="Informe o ID" required autofocus><br><br>-->
                             
-                            Observações<br> <input type="text" name="observacoes"><br><br>
+                            ID Funcionario *<br> <input type="number" maxlength="12" name="idFuncionario" required><br><br>
                             
                             ID Pizza *<br> <input type="number" maxlength="12" name="idPizza" required><br><br>
                             
                             ID Bebida *<br> <input type="number" maxlength="12" name="idBebida" required><br><br>
                             
                             ID Conta *<br> <input type="number" maxlength="12" name="idConta" required><br><br>
+
+                            Observações<br> <input type="text" name="observacoes"><br><br>
                
                             Mesa *<br> <input type="number" maxlength="3" name="mesa" required><br><br>
                             
-                            ID Funcionario *<br> <input type="number" maxlength="12" name="idFuncionario" required><br><br>
-                            
-                            Entrega *<input type="radio" name="entrega" value="Sim"> Sim
-							<input type="radio" name="entrega" value="Nao" checked> Não <br><br>
+                            Entrega *<input type="radio" name="entrega" value="Entrega"> Sim
+							<input type="radio" name="entrega" value="Local" checked> Não <br><br>
                             
                             <br>
                             <input type="reset" value="Limpar">

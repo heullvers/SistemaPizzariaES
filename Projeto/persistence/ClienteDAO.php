@@ -12,12 +12,19 @@ include_once("../model/Cliente.php");
         '". $cliente->getCidade()."', '". $cliente->getEndereco()."','". $cliente->getBairro()."', '". $cliente->getTelefone()."', '". $cliente->getCelular()."', 
         '". $cliente->getEmail()."',". $cliente->getQntContas().",  '". $cliente->getAtendimentoEspecial()."', '". $cliente->getSexo()."')";
    
-        if(!pg_query($link, $query)){
+        $pg = pg_query($link, $query);
 
-            die("ERRO! Os dados não foram salvos.");
+        if(pg_affected_rows($pg)){
+            $_SESSION['msg'] = "<p style='color:green;'>Cliente cadastrado com sucesso</p>";
+                
+            header("Location: ..\controller\C_visualizarclientes.php");
+        
         }
-
-        echo "Os dados foram salvos";
+        else{
+                 $_SESSION['msg'] = "<p style='color:red;'>Falha ao cadastrar cliente</p>";
+                
+                header("Location: ..\controller\C_visualizarclientes.php");
+            }
                 
     }
 
@@ -26,23 +33,17 @@ include_once("../model/Cliente.php");
         $clienteid = intval($_GET["idcliente"]);
         $query = "DELETE FROM cliente WHERE idcliente=". $clienteid;
         $pg = pg_query($link, $query);
-        if(!pg){
 
-            die("ERRO! Cliente nao excluido.");
-        }
-
-        if($pg){
-            echo 
-            "<script>
-                location.href= 'C_visualizarclientes.php';
-            </script>";
+        if(pg_affected_rows($pg)){
+            $_SESSION['msg'] = "<p style='color:green;'>Cliente removido com sucesso</p>";
+            
+            header("Location: ..\controller\C_visualizarclientes.php");
+    
         }
         else{
-            echo 
-            "<script>
-                alert('Não foi possível deletar o usuário');
-                location.href= 'C_visualizarclientes.php';
-            </script>";
+            $_SESSION['msg'] = "<p style='color:red;'>Falha ao remover cliente</p>";
+            
+            header("Location: ..\controller\C_visualizarclientes.php");
         }
         
     }
@@ -59,7 +60,6 @@ include_once("../model/Cliente.php");
                 $_SESSION['msg'] = "<p style='color:green;'>Cliente editado com sucesso</p>";
                 
                 header("Location: ..\controller\C_visualizarclientes.php");
-                echo "afetei";
         
             }
             else{
@@ -84,9 +84,7 @@ include_once("../model/Cliente.php");
         
     }
 
-
-
-
+    
     function consultar($link){
         $query = "SELECT * FROM cliente";
         $result = pg_query($link, $query);

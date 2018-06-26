@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include_once("../model/Cliente.php");
 include_once("../persistence/Connection.php");
 include_once("../persistence/ClienteDAO.php");
