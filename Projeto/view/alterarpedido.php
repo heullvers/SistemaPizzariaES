@@ -47,7 +47,6 @@
 					<input type="radio" name="entrega" value="Local" <?php echo ($entrega =="Não") ? "checked" : null;?> checked> Não <br><br>
                             
             <br>
-            <input type="reset" value="Limpar">
             <input type="submit" value="Salvar">
 	</fieldset>
 

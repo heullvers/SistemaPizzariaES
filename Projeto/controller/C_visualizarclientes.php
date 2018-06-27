@@ -22,7 +22,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Irineu 2</title>
+    <title>Visualizar clientes</title>
     <link rel="stylesheet" type="text/css" />
 </head>
 <body>

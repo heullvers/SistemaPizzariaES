@@ -21,7 +21,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Consulta Pedidos</title>
+    <title>Visualizar pedidos</title>
     <link rel="stylesheet" type="text/css" />
 </head>
 <body>

@@ -7,7 +7,6 @@
     $conexao = new Connection("localhost", "5432", "postgres", "hubuntuh", "dbPizzaria");
     $conexao->conectar();
 
-    //tem que arrumar isso aqui
     $idpedido = $_POST["idpedido"];
     $idfuncionario = $_POST["idfuncionario"];
     $idpizza = $_POST["idpizza"];
