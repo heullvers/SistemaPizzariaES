@@ -59,6 +59,25 @@ include_once("../model/Pedido.php");
         
     }
 
+    public function alterar($idpedido, $idfuncionario, $idpizza, $idbebida, $idconta, $observacoes, $mesa, $entrega, $link){
+
+            
+            $query = "UPDATE pedido set idfuncionario=$idfuncionario, idpizza=$idpizza, idbebida=$idbebida, idconta=$idconta,
+            observacoes='$observacoes', mesa=$mesa, tipopedido='$entrega' WHERE idpedido = $idpedido";
+            $pg = pg_query($link, $query);
+
+            if(pg_affected_rows($pg)){
+                $_SESSION['msg'] = "<p style='color:green;'>Pedido editado com sucesso</p>";
+                header("Location: ..\controller\C_visualizarpedidos.php");
+        
+            }
+            else{
+                $_SESSION['msg'] = "<p style='color:red;'>Falha ao editar pedido</p>";
+                
+                header("Location: ..\controller\C_visualizarpedidos.php");
+            }
+        }
+
     public function consultarUM($cod, $link){
 
         $query = "SELECT * FROM pedido WHERE idpedido = $cod";

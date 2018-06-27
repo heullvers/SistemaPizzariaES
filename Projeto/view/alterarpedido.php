@@ -43,8 +43,8 @@
             Mesa *<br> <input type="number" maxlength="3" name="mesa" value=<?= $pedido["mesa"]?> required><br><br>
                             
             <?php $entrega = $pedido["tipopedido"]; ?>
-            Entrega *<input type="radio" name="entrega" value="Sim" <?php echo ($entrega =="Sim") ? "checked" : null;?> > Sim
-					<input type="radio" name="entrega" value="Nao" <?php echo ($entrega =="Não") ? "checked" : null;?> checked> Não <br><br>
+            Entrega *<input type="radio" name="entrega" value="Entrega" <?php echo ($entrega =="Sim") ? "checked" : null;?> > Sim
+					<input type="radio" name="entrega" value="Local" <?php echo ($entrega =="Não") ? "checked" : null;?> checked> Não <br><br>
                             
             <br>
             <input type="reset" value="Limpar">
