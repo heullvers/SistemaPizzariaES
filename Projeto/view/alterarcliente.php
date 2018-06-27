@@ -32,11 +32,11 @@
 	<fieldset>
         <legend>Campos com * são obrigatórios</legend>
 
-			<input type="hidden" name="idcli" value=<?= $clientinho["idcliente"]?>></input>
+			<input type="hidden" name="idcli" value="<?= $clientinho["idcliente"]?>"></input>
 
-			Nome <br> <input type="text" name="nome" value=<?= $clientinho["nome"]?> placeholder="Informe o nome do cliente" autofocus required/> <br><br>
-			Data de nascimento <br> <input type="text" name="datanascimento" value=<?= $clientinho["nascimento"]?> required/> <br><br>
-			CPF <br> <input type="text" name="cpf" value=<?= $clientinho["cpf"]?> required/> <br><br>
+			Nome <br> <input type="text" name="nome" value="<?= $clientinho["nome"]?>"" placeholder="Informe o nome do cliente" autofocus required/> <br><br>
+			Data de nascimento <br> <input type="text" name="datanascimento" value="<?= $clientinho["nascimento"]?>" required/> <br><br>
+			CPF <br> <input type="text" name="cpf" value="<?= $clientinho["cpf"]?>" required/> <br><br>
 
 
 			<?php $sexo = $clientinho["sexo"]; ?>
@@ -50,13 +50,13 @@
 			<input type="radio" name="atendimentoespecial" value="Não" <?php echo ($at =="Não") ? "checked" : null;?>/> Não <br><br>
 
 
-			Cidade <br> <input type="text" name="cidade" value=<?= $clientinho["cidade"]?> required/> <br><br>
-			Endereco <br> <input type="text" name="endereco" value=<?= $clientinho["endereco"]?> required/> <br><br>
-			Bairro <br> <input type="text" name="bairro" value=<?= $clientinho["bairro"]?> required/> <br><br>
-			Telefone <br> <input type="text" name="telefone" value=<?= $clientinho["telefone"]?> /> <br><br>
-			Celular <br> <input type="text" name="celular" value=<?= $clientinho["celular"]?> /> <br><br>
-			E-mail <br> <input type="text" name="email" value=<?= $clientinho["email"]?> /> <br><br>
-			Quantidade de contas <br> <input type="text" name="qntC" value=<?= $clientinho["quantidadecontas"]?> /> <br><br>
+			Cidade <br> <input type="text" name="cidade" value="<?= $clientinho["cidade"]?>" required/> <br><br>
+			Endereco <br> <input type="text" name="endereco" value="<?= $clientinho["endereco"]?>" required/> <br><br>
+			Bairro <br> <input type="text" name="bairro" value="<?= $clientinho["bairro"]?>" required/> <br><br>
+			Telefone <br> <input type="text" name="telefone" value="<?= $clientinho["telefone"]?>" /> <br><br>
+			Celular <br> <input type="text" name="celular" value="<?= $clientinho["celular"]?>" /> <br><br>
+			E-mail <br> <input type="text" name="email" value="<?= $clientinho["email"]?>" /> <br><br>
+			Quantidade de contas <br> <input type="text" name="qntC" value="<?= $clientinho["quantidadecontas"]?>" /> <br><br>
 			<input type="submit" value="Editar dados"/>
 	</fieldset>
 
