@@ -40,9 +40,6 @@ class Pessoa{
     
 }
 
-//$t = new Pessoa("Heuller", "1998/06/15", "11120699681", "São Gonçalo", "Rua Pern 205", "Santa Rita", "3532412637","35997354331", "heuller555@gmail.com", "M" );
-//$t->imprimir();
-
 
 
 

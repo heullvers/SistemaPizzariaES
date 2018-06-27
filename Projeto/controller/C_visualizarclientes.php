@@ -15,8 +15,6 @@
 
     $clientedao = new ClienteDAO();
     $resultado = $clientedao->consultar($conexao->getLink());
-    //$linha = pg_fetch_row($resultado);
-    //echo $resultado;       
 
 ?>
 
